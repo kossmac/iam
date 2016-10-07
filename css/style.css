@@ -15,11 +15,6 @@ header {
     box-shadow: 0 5px 5px #575757;
 }
 
-h1 {
-
-
-}
-
 main {
     width: 100%;
 }
@@ -27,16 +22,16 @@ main {
 #sandwich-icon {
     position: relative;
     display: inline-block;
-    filter: invert(90%);
+    filter: invert(80%);
     background: url("../img/glyphicons/png/glyphicons-517-menu-hamburger.png") no-repeat center;
     width: 23px;
     height: 100%;
-    padding: 0 7px 0 2px;
+    padding: 0 10px 0 2px;
 }
 
 #main-title {
     position: absolute;
-    padding-top: 7px;
+    padding: 7px 0 0 10px;
     display: inline-block;
     font-size: 1.3rem;
     font-weight: normal;
@@ -44,22 +39,22 @@ main {
 
 #tile-icon {
     float: right;
-    filter: invert(90%);
+    filter: invert(80%);
     display: inline-block;
     background: url("../img/glyphicons/png/glyphicons-157-show-thumbnails.png") no-repeat center;
     width: 23px;
     height: 100%;
-    padding: 0 5px 0 2px;
+    padding: 0 20px 0 0;
 }
 
 #plus-icon {
     float: right;
     display: inline-block;
-    filter: invert(90%);
+    filter: invert(80%);
     background: url("../img/glyphicons/png/glyphicons-433-plus.png") no-repeat center;
     height: 100%;
     width: 23px;
-    padding: 0 5px 0 2px;
+    padding: 0 10px 0 0;
 }
 
 main ul {

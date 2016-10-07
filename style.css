@@ -1,0 +1,92 @@
+body {
+    color: black;
+    background-color: white;
+    margin: 0;
+    font-family: Arial;
+}
+
+header {
+    height: 2.4em;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 5px 5px #575757;
+}
+
+h1 {
+
+
+}
+
+main {
+    width: 100%;
+}
+
+#sandwich-icon {
+    position: relative;
+    display: inline-block;
+    filter: invert(90%);
+    background: url("./img/glyphicons/png/glyphicons-517-menu-hamburger.png") no-repeat center;
+    width: 23px;
+    height: 100%;
+    padding: 0 7px 0 2px;
+}
+
+#main-title {
+    position: absolute;
+    padding-top: 7px;
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: normal;
+}
+
+#tile-icon {
+    float: right;
+    filter: invert(90%);
+    display: inline-block;
+    background: url("./img/glyphicons/png/glyphicons-157-show-thumbnails.png") no-repeat center;
+    width: 23px;
+    height: 100%;
+    padding: 0 5px 0 2px;
+}
+
+#plus-icon {
+    float: right;
+    display: inline-block;
+    filter: invert(90%);
+    background: url("./img/glyphicons/png/glyphicons-433-plus.png") no-repeat center;
+    height: 100%;
+    width: 23px;
+    padding: 0 5px 0 2px;
+}
+
+main ul {
+    margin: 2.4em 0 0 0;
+    padding: 0;
+}
+
+main ul li:first-child {
+    border-top: lightgrey solid 0.7em;
+}
+
+main ul li {
+    list-style: none;
+    height: 5em;
+    border-bottom: solid grey 1px;
+}
+
+main ul li:last-child {
+    margin-bottom: 3em;
+}
+
+footer {
+    height: 3em;
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: solid #ee7230 3px;
+}

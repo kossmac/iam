@@ -86,8 +86,65 @@ main ul li:first-child {
 
 main ul li {
     list-style: none;
-    height: 5em;
+    height: 7.5em;
     border-bottom: solid grey 1px;
+    position: relative;
+    z-index: -1;
+}
+
+.grey-text-in-list-item {
+    font-size: 0.8em;
+    color: #828282;
+}
+
+.list-image {
+    position: absolute;
+    float: left;
+    padding: 10px 0 0 10px;
+}
+
+.list-image-source {
+    position: absolute;
+    top: 10px;
+    left: 105px;
+}
+
+.list-image-title {
+    position: absolute;
+    top: 40px;
+    left: 105px;
+}
+
+.list-image-tags:before {
+    background-image: url("../img/glyphicons/png/glyphicons-174-play.png");
+    filter: invert(80%);
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-size: 10px 10px;
+    display: inline-block;
+}
+
+.list-image-tags {
+    position: absolute;
+    top: 75px;
+    left: 105px;
+}
+
+.list-image-date {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+}
+
+.list-image-options {
+    position: absolute;
+    right: 15px;
+    bottom: 24px;
+    background: url("../img/glyphicons/png/glyphicons-518-option-vertical.png") no-repeat center;
+    filter: invert(80%);
+    height: 25%;
+    width: 6px;
 }
 
 main ul li:last-child {

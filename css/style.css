@@ -59,8 +59,8 @@ main {
 #logout-icon {
     display: inline-block;
     height: 100%;
-    width: 18px;
-    padding: 0 10px 0 2px;
+    width: 21px;
+    margin-left: 10px;
     filter: invert(80%);
     background: url("../img/glyphicons/png/glyphicons-388-log-out.png") no-repeat center;
 }
@@ -70,7 +70,7 @@ main {
     float: right;
     height: 100%;
     width: 26px;
-    padding: 0 10px 0 0;
+    margin-right: 15px;
     filter: invert(80%);
     background: url("../img/glyphicons/png/glyphicons-82-refresh.png") no-repeat center;
 }

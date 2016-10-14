@@ -49,6 +49,12 @@ main {
     background: url("../img/glyphicons/png/glyphicons-157-show-thumbnails.png") no-repeat center;
 }
 
+.tile #tile-icon {
+    background: url("../img/glyphicons/png/glyphicons-115-list.png") no-repeat center;
+    height: 21px;
+    width: 26px;
+}
+
 #plus-icon {
     display: inline-block;
     float: right;

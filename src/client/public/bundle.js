@@ -102,7 +102,7 @@
 	    return Main;
 	}(_react2.default.Component);
 	
-	var ITEMS = [{ image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: [], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat'], date: '16.8.2015' }];
+	var ITEMS = [{ image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M2', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M3', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M4', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M5', tags: ['cat', 'dog'], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M6', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M7', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M8', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M9', tags: [], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M10', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M11', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M12', tags: ['cat'], date: '16.8.2015' }];
 	
 	(0, _reactDom.render)(_react2.default.createElement(Main, { items: ITEMS }), document.getElementById('app'));
 
@@ -22030,16 +22030,16 @@
 	        key: 'switchClass',
 	        value: function switchClass() {
 	            var main = document.getElementById('main');
-	            document.body.className == 'tile' ? document.body.className = '' : document.body.className = 'tile';
+	            document.body.classList.toggle('tile');
 	            main.removeEventListener('transitionend', this.switchClass);
-	            main.className == 'empty' ? main.className = '' : main.className = 'empty';
+	            main.classList.toggle('empty');
 	        }
 	    }, {
 	        key: 'onSwitch',
 	        value: function onSwitch() {
 	            var main = document.getElementById('main');
-	            main.className == 'empty' ? main.className = '' : main.className = 'empty';
 	            main.addEventListener('transitionend', this.switchClass, false);
+	            main.classList.toggle('empty');
 	        }
 	    }, {
 	        key: 'render',
@@ -22054,7 +22054,7 @@
 	                    'Medien'
 	                ),
 	                _react2.default.createElement('div', { id: 'plus-icon' }),
-	                _react2.default.createElement('button', { id: 'view-icon', onClick: this.onSwitch })
+	                _react2.default.createElement('div', { id: 'view-icon', onClick: this.onSwitch })
 	            );
 	        }
 	    }]);
@@ -22211,20 +22211,51 @@
 	var ListItemComponent = function (_React$Component) {
 	    _inherits(ListItemComponent, _React$Component);
 	
-	    function ListItemComponent() {
+	    function ListItemComponent(props) {
 	        _classCallCheck(this, ListItemComponent);
 	
-	        return _possibleConstructorReturn(this, (ListItemComponent.__proto__ || Object.getPrototypeOf(ListItemComponent)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (ListItemComponent.__proto__ || Object.getPrototypeOf(ListItemComponent)).call(this, props));
+	
+	        _this.showAlert = _this.showAlert.bind(_this);
+	        _this.showAlertWithName = _this.showAlertWithName.bind(_this);
+	        _this.showAlertWithNameAndUrl = _this.showAlertWithNameAndUrl.bind(_this);
+	        return _this;
 	    }
 	
 	    _createClass(ListItemComponent, [{
+	        key: 'showAlertWithName',
+	        value: function showAlertWithName(event) {
+	            if (event.target.tagName == 'LI') {
+	                var message = [];
+	                message.push(this.props.name);
+	                this.showAlert(message);
+	            }
+	        }
+	    }, {
+	        key: 'showAlertWithNameAndUrl',
+	        value: function showAlertWithNameAndUrl() {
+	            var message = [];
+	            message.push(this.props.name);
+	            message.push(this.props.image_url);
+	            this.showAlert(message);
+	        }
+	    }, {
+	        key: 'showAlert',
+	        value: function showAlert(message) {
+	            var str = "";
+	            message.forEach(function (item) {
+	                str = str.concat(item + '\n');
+	            });
+	            alert(str);
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var image_url_base = this.props.image_url.split('/')[2];
 	            var tag_length = this.props.tags.length;
 	            return _react2.default.createElement(
 	                'li',
-	                null,
+	                { onClick: this.showAlertWithName },
 	                _react2.default.createElement('img', { src: this.props.image_url, className: 'list-image' }),
 	                _react2.default.createElement(
 	                    'div',
@@ -22246,7 +22277,7 @@
 	                    { className: 'grey-text-in-list-item list-image-date' },
 	                    this.props.date
 	                ),
-	                _react2.default.createElement('div', { className: 'list-image-options' })
+	                _react2.default.createElement('div', { onClick: this.showAlertWithNameAndUrl, className: 'list-image-options' })
 	            );
 	        }
 	    }]);

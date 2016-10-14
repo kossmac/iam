@@ -19,12 +19,12 @@ main {
     width: 100%;
     min-width: 300px;
     opacity: 1;
-    transition: opacity 1s linear;
+    transition: opacity 0.5s linear;
 }
 
 .empty {
     opacity: 0;
-    transition: opacity 2s linear;
+    transition: opacity 0.5s linear;
 }
 
 #sandwich-icon {
@@ -51,8 +51,6 @@ main {
     width: 22px;
     margin: 15px 10px 0 0;
     filter: invert(80%);
-    border: none;
-    outline: none;
     background: url("../img/glyphicons/png/glyphicons-157-show-thumbnails.png") no-repeat center;
 }
 
@@ -117,7 +115,6 @@ main ul li {
     height: 7.5em;
     border-bottom: solid grey 1px;
     position: relative;
-    z-index: -1;
 }
 
 .tile main ul li {

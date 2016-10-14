@@ -17,6 +17,7 @@ header {
 
 main {
     width: 100%;
+    min-width: 300px;
 }
 
 #sandwich-icon {
@@ -42,7 +43,6 @@ main {
     height: 22px;
     width: 22px;
     margin: 15px 10px 0 0;
-    margin-right: 15px;
     filter: invert(80%);
     border: none;
     outline: none;
@@ -93,6 +93,10 @@ main ul li:first-child {
     border-top: lightgrey solid 0.7em;
 }
 
+.tile main ul li:first-child {
+    border-top: none;
+}
+
 main ul li {
     list-style: none;
     height: 7.5em;
@@ -101,9 +105,26 @@ main ul li {
     z-index: -1;
 }
 
+.tile main ul li {
+    display: inline-block;
+    list-style: none;
+    float: left;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    z-index: -1;
+    border-bottom: none;
+}
+
 .grey-text-in-list-item {
     font-size: 0.8em;
     color: #828282;
+}
+
+.tile .grey-text-in-list-item {
+    font-size: 0.8em;
+    color: #828282;
+    display: none;
 }
 
 .list-image {
@@ -124,7 +145,14 @@ main ul li {
     left: 105px;
 }
 
-.list-image-tags:before {
+.tile .list-image-title {
+    position: absolute;
+    top: 40px;
+    left: 105px;
+    display: none;
+}
+
+.list-image-tags::before {
     background-image: url("../img/glyphicons/png/glyphicons-174-play.png");
     filter: invert(80%);
     content: "";
@@ -157,8 +185,22 @@ main ul li {
     width: 6px;
 }
 
+.tile .list-image-options {
+    position: absolute;
+    right: 15px;
+    bottom: 4px;
+    background: url("../img/glyphicons/png/glyphicons-518-option-vertical.png") no-repeat center;
+    filter: invert(80%);
+    height: 25%;
+    width: 6px;
+}
+
 main ul li:last-child {
     margin-bottom: 3em;
+}
+
+.tile main ul li:last-child {
+    margin-bottom: 4em;
 }
 
 footer {

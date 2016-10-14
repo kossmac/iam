@@ -1,0 +1,29 @@
+{
+  "name": "aufgabe",
+  "version": "1.0.0",
+  "description": "IAM Aufgabe",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kossmac/iam.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kossmac/iam/issues"
+  },
+  "homepage": "https://github.com/kossmac/iam#readme",
+  "dependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "webpack": "^1.13.2"
+  },
+  "scripts": {
+    "dev": "webpack -d --watch",
+    "build": "webpack -d"
+  }
+}

@@ -21,9 +21,9 @@ main {
 
 #sandwich-icon {
     display: inline-block;
-    height: 100%;
+    height: 18px;
     width: 22px;
-    margin-left: 10px;
+    margin: 15px 0 0 10px;
     filter: invert(80%);
     background: url("../img/glyphicons/png/glyphicons-517-menu-hamburger.png") no-repeat center;
 }
@@ -39,28 +39,34 @@ main {
 #tile-icon {
     display: inline-block;
     float: right;
-    height: 100%;
+    height: 22px;
     width: 22px;
+    margin: 15px 10px 0 0;
     margin-right: 15px;
     filter: invert(80%);
+    border: none;
+    outline: none;
     background: url("../img/glyphicons/png/glyphicons-157-show-thumbnails.png") no-repeat center;
 }
 
 #plus-icon {
     display: inline-block;
     float: right;
-    height: 100%;
+    height: 20px;
     width: 20px;
-    margin-right: 15px;
+    margin: 15px 10px 0 0;
     filter: invert(80%);
     background: url("../img/glyphicons/png/glyphicons-433-plus.png") no-repeat center;
 }
 
 #logout-icon {
     display: inline-block;
-    height: 100%;
+    height: 18px;
     width: 21px;
     margin-left: 10px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
     filter: invert(80%);
     background: url("../img/glyphicons/png/glyphicons-388-log-out.png") no-repeat center;
 }
@@ -68,9 +74,12 @@ main {
 #refresh-icon {
     display: inline-block;
     float: right;
-    height: 100%;
+    height: 25px;
     width: 26px;
     margin-right: 15px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
     filter: invert(80%);
     background: url("../img/glyphicons/png/glyphicons-82-refresh.png") no-repeat center;
 }
@@ -123,6 +132,7 @@ main ul li {
     height: 10px;
     background-size: 10px 10px;
     display: inline-block;
+    margin-right: 0.4em;
 }
 
 .list-image-tags {

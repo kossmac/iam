@@ -57,9 +57,17 @@
 	
 	var _reactDom = __webpack_require__(/*! react-dom */ 34);
 	
-	var _ListComponent = __webpack_require__(/*! ./ListComponent.jsx */ 172);
+	var _HeaderComponent = __webpack_require__(/*! ./components/HeaderComponent.jsx */ 172);
 	
-	var _ListComponent2 = _interopRequireDefault(_ListComponent);
+	var _HeaderComponent2 = _interopRequireDefault(_HeaderComponent);
+	
+	var _AppComponent = __webpack_require__(/*! ./components/AppComponent.jsx */ 173);
+	
+	var _AppComponent2 = _interopRequireDefault(_AppComponent);
+	
+	var _FooterComponent = __webpack_require__(/*! ./components/FooterComponent.jsx */ 176);
+	
+	var _FooterComponent2 = _interopRequireDefault(_FooterComponent);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -69,93 +77,8 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var Header = function (_React$Component) {
-	    _inherits(Header, _React$Component);
-	
-	    function Header(props) {
-	        _classCallCheck(this, Header);
-	
-	        var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
-	
-	        _this.onTile = _this.onTile.bind(_this);
-	        return _this;
-	    }
-	
-	    _createClass(Header, [{
-	        key: 'onTile',
-	        value: function onTile() {
-	            document.body.className == 'tile' ? document.body.className = '' : document.body.className = 'tile';
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'header',
-	                null,
-	                _react2.default.createElement('div', { id: 'sandwich-icon' }),
-	                _react2.default.createElement(
-	                    'div',
-	                    { id: 'main-title' },
-	                    'Medien'
-	                ),
-	                _react2.default.createElement('div', { id: 'plus-icon' }),
-	                _react2.default.createElement('button', { id: 'tile-icon', onClick: this.onTile })
-	            );
-	        }
-	    }]);
-	
-	    return Header;
-	}(_react2.default.Component);
-	
-	var App = function (_React$Component2) {
-	    _inherits(App, _React$Component2);
-	
-	    function App() {
-	        _classCallCheck(this, App);
-	
-	        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
-	    }
-	
-	    _createClass(App, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'main',
-	                null,
-	                _react2.default.createElement(_ListComponent2.default, { items: this.props.items })
-	            );
-	        }
-	    }]);
-	
-	    return App;
-	}(_react2.default.Component);
-	
-	var Footer = function (_React$Component3) {
-	    _inherits(Footer, _React$Component3);
-	
-	    function Footer() {
-	        _classCallCheck(this, Footer);
-	
-	        return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).apply(this, arguments));
-	    }
-	
-	    _createClass(Footer, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'footer',
-	                null,
-	                _react2.default.createElement('div', { id: 'logout-icon' }),
-	                _react2.default.createElement('div', { id: 'refresh-icon' })
-	            );
-	        }
-	    }]);
-	
-	    return Footer;
-	}(_react2.default.Component);
-	
-	var Main = function (_React$Component4) {
-	    _inherits(Main, _React$Component4);
+	var Main = function (_React$Component) {
+	    _inherits(Main, _React$Component);
 	
 	    function Main() {
 	        _classCallCheck(this, Main);
@@ -169,9 +92,9 @@
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(Header, null),
-	                _react2.default.createElement(App, { items: this.props.items }),
-	                _react2.default.createElement(Footer, null)
+	                _react2.default.createElement(_HeaderComponent2.default, null),
+	                _react2.default.createElement(_AppComponent2.default, { items: this.props.items }),
+	                _react2.default.createElement(_FooterComponent2.default, null)
 	            );
 	        }
 	    }]);
@@ -179,7 +102,7 @@
 	    return Main;
 	}(_react2.default.Component);
 	
-	var ITEMS = [{ image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '8.2.2017' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: [], date: '4.6.2013' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat'], date: '15.1.2011' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '8.2.2017' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: [], date: '4.6.2013' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat'], date: '15.1.2011' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '8.2.2017' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: [], date: '4.6.2013' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat'], date: '15.1.2011' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '8.2.2017' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: [], date: '4.6.2013' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat'], date: '15.1.2011' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '8.2.2017' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: [], date: '4.6.2013' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat'], date: '15.1.2011' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '8.2.2017' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: [], date: '4.6.2013' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat'], date: '15.1.2011' }];
+	var ITEMS = [{ image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }];
 	
 	(0, _reactDom.render)(_react2.default.createElement(Main, { items: ITEMS }), document.getElementById('main'));
 
@@ -22065,9 +21988,9 @@
 
 /***/ },
 /* 172 */
-/*!******************************************!*\
-  !*** ./src/client/app/ListComponent.jsx ***!
-  \******************************************/
+/*!*******************************************************!*\
+  !*** ./src/client/app/components/HeaderComponent.jsx ***!
+  \*******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22082,7 +22005,130 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _ListItemComponent = __webpack_require__(/*! ./ListItemComponent.jsx */ 173);
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var HeaderComponent = function (_React$Component) {
+	    _inherits(HeaderComponent, _React$Component);
+	
+	    function HeaderComponent(props) {
+	        _classCallCheck(this, HeaderComponent);
+	
+	        var _this = _possibleConstructorReturn(this, (HeaderComponent.__proto__ || Object.getPrototypeOf(HeaderComponent)).call(this, props));
+	
+	        _this.onTile = _this.onTile.bind(_this);
+	        return _this;
+	    }
+	
+	    _createClass(HeaderComponent, [{
+	        key: 'onTile',
+	        value: function onTile() {
+	            document.body.className == 'tile' ? document.body.className = '' : document.body.className = 'tile';
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'header',
+	                null,
+	                _react2.default.createElement('div', { id: 'sandwich-icon' }),
+	                _react2.default.createElement(
+	                    'div',
+	                    { id: 'main-title' },
+	                    'Medien'
+	                ),
+	                _react2.default.createElement('div', { id: 'plus-icon' }),
+	                _react2.default.createElement('button', { id: 'tile-icon', onClick: this.onTile })
+	            );
+	        }
+	    }]);
+	
+	    return HeaderComponent;
+	}(_react2.default.Component);
+	
+	exports.default = HeaderComponent;
+
+/***/ },
+/* 173 */
+/*!****************************************************!*\
+  !*** ./src/client/app/components/AppComponent.jsx ***!
+  \****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _ListComponent = __webpack_require__(/*! ./ListComponent.jsx */ 174);
+	
+	var _ListComponent2 = _interopRequireDefault(_ListComponent);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var AppComponent = function (_React$Component) {
+	    _inherits(AppComponent, _React$Component);
+	
+	    function AppComponent() {
+	        _classCallCheck(this, AppComponent);
+	
+	        return _possibleConstructorReturn(this, (AppComponent.__proto__ || Object.getPrototypeOf(AppComponent)).apply(this, arguments));
+	    }
+	
+	    _createClass(AppComponent, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'main',
+	                null,
+	                _react2.default.createElement(_ListComponent2.default, { items: this.props.items })
+	            );
+	        }
+	    }]);
+	
+	    return AppComponent;
+	}(_react2.default.Component);
+	
+	exports.default = AppComponent;
+
+/***/ },
+/* 174 */
+/*!*****************************************************!*\
+  !*** ./src/client/app/components/ListComponent.jsx ***!
+  \*****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _ListItemComponent = __webpack_require__(/*! ./ListItemComponent.jsx */ 175);
 	
 	var _ListItemComponent2 = _interopRequireDefault(_ListItemComponent);
 	
@@ -22125,10 +22171,10 @@
 	exports.default = ListComponent;
 
 /***/ },
-/* 173 */
-/*!**********************************************!*\
-  !*** ./src/client/app/ListItemComponent.jsx ***!
-  \**********************************************/
+/* 175 */
+/*!*********************************************************!*\
+  !*** ./src/client/app/components/ListItemComponent.jsx ***!
+  \*********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22198,6 +22244,59 @@
 	}(_react2.default.Component);
 	
 	exports.default = ListItemComponent;
+
+/***/ },
+/* 176 */
+/*!*******************************************************!*\
+  !*** ./src/client/app/components/FooterComponent.jsx ***!
+  \*******************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var FooterComponent = function (_React$Component) {
+	    _inherits(FooterComponent, _React$Component);
+	
+	    function FooterComponent() {
+	        _classCallCheck(this, FooterComponent);
+	
+	        return _possibleConstructorReturn(this, (FooterComponent.__proto__ || Object.getPrototypeOf(FooterComponent)).apply(this, arguments));
+	    }
+	
+	    _createClass(FooterComponent, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "footer",
+	                null,
+	                _react2.default.createElement("div", { id: "logout-icon" }),
+	                _react2.default.createElement("div", { id: "refresh-icon" })
+	            );
+	        }
+	    }]);
+	
+	    return FooterComponent;
+	}(_react2.default.Component);
+	
+	exports.default = FooterComponent;
 
 /***/ }
 /******/ ]);

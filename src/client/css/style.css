@@ -96,7 +96,7 @@ main ul {
 }
 
 main ul li:first-child {
-    border-top: lightgrey solid 0.7em;
+    /*border-top: lightgrey solid 0.7em;*/
 }
 
 .tile main ul li:first-child {

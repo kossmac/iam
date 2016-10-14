@@ -2,7 +2,6 @@ import React from 'react';
 
 import ListItemComponent from './ListItemComponent.jsx';
 
-
 class ListComponent extends React.Component {
     render() {
         var items = [];

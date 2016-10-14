@@ -5,7 +5,7 @@ import ListComponent from './ListComponent.jsx';
 class AppComponent extends React.Component {
     render () {
         return (
-            <main>
+            <main id="main">
                 <ListComponent items={this.props.items} />
             </main>
         );

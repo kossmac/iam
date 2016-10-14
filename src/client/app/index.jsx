@@ -32,4 +32,4 @@ var ITEMS = [
     {image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat'], date: '16.8.2015'},
 ];
 
-render(<Main items={ITEMS} />, document.getElementById('main'));
+render(<Main items={ITEMS} />, document.getElementById('app'));

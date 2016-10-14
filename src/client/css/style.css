@@ -18,6 +18,13 @@ header {
 main {
     width: 100%;
     min-width: 300px;
+    opacity: 1;
+    transition: opacity 1s linear;
+}
+
+.empty {
+    opacity: 0;
+    transition: opacity 2s linear;
 }
 
 #sandwich-icon {
@@ -37,7 +44,7 @@ main {
     font-weight: normal;
 }
 
-#tile-icon {
+#view-icon {
     display: inline-block;
     float: right;
     height: 22px;
@@ -49,7 +56,7 @@ main {
     background: url("../img/glyphicons/png/glyphicons-157-show-thumbnails.png") no-repeat center;
 }
 
-.tile #tile-icon {
+.tile #view-icon {
     background: url("../img/glyphicons/png/glyphicons-115-list.png") no-repeat center;
     height: 21px;
     width: 26px;

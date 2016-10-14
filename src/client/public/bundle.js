@@ -104,7 +104,7 @@
 	
 	var ITEMS = [{ image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: [], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat'], date: '16.8.2015' }];
 	
-	(0, _reactDom.render)(_react2.default.createElement(Main, { items: ITEMS }), document.getElementById('main'));
+	(0, _reactDom.render)(_react2.default.createElement(Main, { items: ITEMS }), document.getElementById('app'));
 
 /***/ },
 /* 1 */
@@ -22021,14 +22021,25 @@
 	
 	        var _this = _possibleConstructorReturn(this, (HeaderComponent.__proto__ || Object.getPrototypeOf(HeaderComponent)).call(this, props));
 	
-	        _this.onTile = _this.onTile.bind(_this);
+	        _this.onSwitch = _this.onSwitch.bind(_this);
+	        _this.switchClass = _this.switchClass.bind(_this);
 	        return _this;
 	    }
 	
 	    _createClass(HeaderComponent, [{
-	        key: 'onTile',
-	        value: function onTile() {
+	        key: 'switchClass',
+	        value: function switchClass() {
+	            var main = document.getElementById('main');
 	            document.body.className == 'tile' ? document.body.className = '' : document.body.className = 'tile';
+	            main.removeEventListener('transitionend', this.switchClass);
+	            main.className == 'empty' ? main.className = '' : main.className = 'empty';
+	        }
+	    }, {
+	        key: 'onSwitch',
+	        value: function onSwitch() {
+	            var main = document.getElementById('main');
+	            main.className == 'empty' ? main.className = '' : main.className = 'empty';
+	            main.addEventListener('transitionend', this.switchClass, false);
 	        }
 	    }, {
 	        key: 'render',
@@ -22043,7 +22054,7 @@
 	                    'Medien'
 	                ),
 	                _react2.default.createElement('div', { id: 'plus-icon' }),
-	                _react2.default.createElement('button', { id: 'tile-icon', onClick: this.onTile })
+	                _react2.default.createElement('button', { id: 'view-icon', onClick: this.onSwitch })
 	            );
 	        }
 	    }]);
@@ -22098,7 +22109,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'main',
-	                null,
+	                { id: 'main' },
 	                _react2.default.createElement(_ListComponent2.default, { items: this.props.items })
 	            );
 	        }

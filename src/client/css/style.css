@@ -113,12 +113,9 @@ main ul li {
 
 .tile main ul li {
     display: inline-block;
-    list-style: none;
     float: left;
     height: 100px;
     width: 100px;
-    position: relative;
-    z-index: -1;
     border-bottom: none;
 }
 
@@ -128,8 +125,6 @@ main ul li {
 }
 
 .tile .grey-text-in-list-item {
-    font-size: 0.8em;
-    color: #828282;
     display: none;
 }
 
@@ -152,9 +147,6 @@ main ul li {
 }
 
 .tile .list-image-title {
-    position: absolute;
-    top: 40px;
-    left: 105px;
     display: none;
 }
 
@@ -192,13 +184,7 @@ main ul li {
 }
 
 .tile .list-image-options {
-    position: absolute;
-    right: 15px;
     bottom: 4px;
-    background: url("../img/glyphicons/png/glyphicons-518-option-vertical.png") no-repeat center;
-    filter: invert(80%);
-    height: 25%;
-    width: 6px;
 }
 
 main ul li:last-child {

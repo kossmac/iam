@@ -2,12 +2,12 @@ import React from 'react';
 
 class HeaderComponent extends React.Component {
     constructor(props) {
-        super(props);
-        this.onTile = this.onTile.bind(this);
+        super(props)
+        this.onTile = this.onTile.bind(this)
     }
 
     onTile () {
-        document.body.className == 'tile' ? document.body.className = '' : document.body.className = 'tile';
+        document.body.className == 'tile' ? document.body.className = '' : document.body.className = 'tile'
     }
 
     render () {

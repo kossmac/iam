@@ -102,7 +102,7 @@
 	    return Main;
 	}(_react2.default.Component);
 	
-	var ITEMS = [{ image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }];
+	var ITEMS = [{ image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: [], date: '12.2.2016' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '2.6.2014' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat', 'dog'], date: '16.8.2015' }, { image_url: 'http://lorempixel.com/85/85', name: 'M1', tags: ['cat'], date: '16.8.2015' }];
 	
 	(0, _reactDom.render)(_react2.default.createElement(Main, { items: ITEMS }), document.getElementById('main'));
 
@@ -22282,13 +22282,18 @@
 	    }
 	
 	    _createClass(FooterComponent, [{
+	        key: "reload",
+	        value: function reload() {
+	            location.reload();
+	        }
+	    }, {
 	        key: "render",
 	        value: function render() {
 	            return _react2.default.createElement(
 	                "footer",
 	                null,
 	                _react2.default.createElement("div", { id: "logout-icon" }),
-	                _react2.default.createElement("div", { id: "refresh-icon" })
+	                _react2.default.createElement("button", { id: "refresh-icon", onClick: this.reload })
 	            );
 	        }
 	    }]);

@@ -88,6 +88,8 @@ main {
     transform: translateY(-50%);
     filter: invert(80%);
     background: url("../img/glyphicons/png/glyphicons-82-refresh.png") no-repeat center;
+    border: none;
+    outline: none;
 }
 
 main ul {

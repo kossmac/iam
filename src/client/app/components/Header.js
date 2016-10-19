@@ -1,6 +1,6 @@
 import React from 'react';
 
-class HeaderComponent extends React.Component {
+class Header extends React.Component {
     constructor(props) {
         super(props);
         this.onSwitch = this.onSwitch.bind(this);
@@ -24,7 +24,7 @@ class HeaderComponent extends React.Component {
         return (
             <header>
                 <div id="sandwich-icon"></div>
-                <div id="main-title">Medien</div>
+                <div id="main-title">{ this.props.tagline }</div>
                 <div id="plus-icon"></div>
                 <div id="view-icon" onClick={this.onSwitch} />
             </header>
@@ -32,4 +32,4 @@ class HeaderComponent extends React.Component {
     }
 }
 
-export default HeaderComponent;
+export default Header;

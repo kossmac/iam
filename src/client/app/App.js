@@ -10,6 +10,8 @@ class App extends React.Component {
         super();
 
         this.loadItems = this.loadItems.bind(this);
+        this.addItem = this.addItem.bind(this);
+        this.removeItem = this.removeItem.bind(this);
 
         this.state = {
             items: {}
@@ -36,14 +38,35 @@ class App extends React.Component {
         request.send();
     }
 
+    addItem(item) {
+        const items = this.state.items.slice();
+        items[items.length] = item;
+        this.setState({items});
+    }
+
+    removeItem(key) {
+        const items = this.state.items.slice();
+        delete items[key];
+        this.setState({items});
+    }
+
     render () {
         return (
             <div>
-                <Header tagline="Medien" />
+                <Header
+                    tagline="Medien"
+                    addItem={this.addItem}
+                />
                 <main id="main">
-                    <List loadItems={this.loadItems} items={this.state.items} />
+                    <List
+                        loadItems={this.loadItems}
+                        removeItem={this.removeItem}
+                        items={this.state.items}
+                    />
                 </main>
-                <Footer loadItems={this.loadItems} />
+                <Footer
+                    loadItems={this.loadItems}
+                />
             </div>
         );
     }

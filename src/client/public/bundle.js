@@ -86,6 +86,8 @@
 	        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 	
 	        _this.loadItems = _this.loadItems.bind(_this);
+	        _this.addItem = _this.addItem.bind(_this);
+	        _this.removeItem = _this.removeItem.bind(_this);
 	
 	        _this.state = {
 	            items: {}
@@ -115,18 +117,41 @@
 	            request.send();
 	        }
 	    }, {
+	        key: 'addItem',
+	        value: function addItem(item) {
+	            var items = this.state.items.slice();
+	            items[items.length] = item;
+	            this.setState({ items: items });
+	        }
+	    }, {
+	        key: 'removeItem',
+	        value: function removeItem(key) {
+	            var items = this.state.items.slice();
+	            delete items[key];
+	            this.setState({ items: items });
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(_Header2.default, { tagline: 'Medien' }),
+	                _react2.default.createElement(_Header2.default, {
+	                    tagline: 'Medien',
+	                    addItem: this.addItem
+	                }),
 	                _react2.default.createElement(
 	                    'main',
 	                    { id: 'main' },
-	                    _react2.default.createElement(_List2.default, { loadItems: this.loadItems, items: this.state.items })
+	                    _react2.default.createElement(_List2.default, {
+	                        loadItems: this.loadItems,
+	                        removeItem: this.removeItem,
+	                        items: this.state.items
+	                    })
 	                ),
-	                _react2.default.createElement(_Footer2.default, { loadItems: this.loadItems })
+	                _react2.default.createElement(_Footer2.default, {
+	                    loadItems: this.loadItems
+	                })
 	            );
 	        }
 	    }]);
@@ -22046,13 +22071,14 @@
 	var Header = function (_React$Component) {
 	    _inherits(Header, _React$Component);
 	
-	    function Header(props) {
+	    function Header() {
 	        _classCallCheck(this, Header);
 	
-	        var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this));
 	
 	        _this.onSwitch = _this.onSwitch.bind(_this);
 	        _this.switchClass = _this.switchClass.bind(_this);
+	        _this.createItem = _this.createItem.bind(_this);
 	        return _this;
 	    }
 	
@@ -22072,6 +22098,17 @@
 	            main.classList.toggle('empty');
 	        }
 	    }, {
+	        key: 'createItem',
+	        value: function createItem() {
+	            var item = {
+	                added: new Date().toLocaleDateString(),
+	                owner: "karsten",
+	                src: "http://lorempixel.com/85/85/",
+	                numOfTags: 10
+	            };
+	            this.props.addItem(item);
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -22083,7 +22120,7 @@
 	                    { id: 'main-title' },
 	                    this.props.tagline
 	                ),
-	                _react2.default.createElement('div', { id: 'plus-icon' }),
+	                _react2.default.createElement('div', { id: 'plus-icon', onClick: this.createItem }),
 	                _react2.default.createElement('div', { id: 'view-icon', onClick: this.onSwitch })
 	            );
 	        }
@@ -22148,7 +22185,7 @@
 	                'ul',
 	                null,
 	                Object.keys(this.props.items).map(function (key) {
-	                    return _react2.default.createElement(_Item2.default, { key: _this2.props.items[key].name, details: _this2.props.items[key] });
+	                    return _react2.default.createElement(_Item2.default, { key: key, index: key, details: _this2.props.items[key], removeItem: _this2.props.removeItem });
 	                })
 	            );
 	        }
@@ -22189,14 +22226,13 @@
 	var Item = function (_React$Component) {
 	    _inherits(Item, _React$Component);
 	
-	    function Item(props) {
+	    function Item() {
 	        _classCallCheck(this, Item);
 	
-	        var _this = _possibleConstructorReturn(this, (Item.__proto__ || Object.getPrototypeOf(Item)).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (Item.__proto__ || Object.getPrototypeOf(Item)).call(this));
 	
 	        _this.showAlert = _this.showAlert.bind(_this);
-	        _this.showAlertWithName = _this.showAlertWithName.bind(_this);
-	        _this.showAlertWithNameAndUrl = _this.showAlertWithNameAndUrl.bind(_this);
+	        _this.delete = _this.delete.bind(_this);
 	        _this.lookupEventTarget = _this.lookupEventTarget.bind(_this);
 	        return _this;
 	    }
@@ -22213,44 +22249,35 @@
 	            }
 	        }
 	    }, {
-	        key: "showAlertWithName",
-	        value: function showAlertWithName(event) {
-	            var eventTarget = this.lookupEventTarget(event.target);
-	            if (eventTarget) {
-	                var message = [];
-	                message.push(this.props.details.name);
-	                this.showAlert(message);
+	        key: "delete",
+	        value: function _delete(event, key) {
+	            if (confirm("Do you really want to delete this item?")) {
+	                console.log('deleting...' + key);
+	                this.props.removeItem(key);
 	            }
-	        }
-	    }, {
-	        key: "showAlertWithNameAndUrl",
-	        value: function showAlertWithNameAndUrl(event) {
-	            var message = [];
-	            message.push(this.props.details.name);
-	            message.push(this.props.details.image_url);
-	            this.showAlert(message);
 	            event.stopPropagation();
 	        }
 	    }, {
 	        key: "showAlert",
-	        value: function showAlert(message) {
-	            var str = "";
-	            message.forEach(function (item) {
-	                str = str.concat(item + '\n');
-	            });
-	            alert(str);
+	        value: function showAlert(event) {
+	            var eventTarget = this.lookupEventTarget(event.target);
+	            if (eventTarget) {
+	                alert(this.props.details.owner);
+	            }
 	        }
 	    }, {
 	        key: "render",
 	        value: function render() {
+	            var _this2 = this;
+	
 	            var details = this.props.details;
 	
-	            var image_url_base = details.image_url.split('/')[2];
-	            var tag_length = details.tags.length;
+	            var image_url_base = details.src.split('/')[2];
+	
 	            return _react2.default.createElement(
 	                "li",
-	                { onClick: this.showAlertWithName },
-	                _react2.default.createElement("img", { src: details.image_url, className: "list-image" }),
+	                { onClick: this.showAlert },
+	                _react2.default.createElement("img", { src: details.src, className: "list-image" }),
 	                _react2.default.createElement(
 	                    "div",
 	                    { className: "grey-text-in-list-item list-image-source" },
@@ -22259,19 +22286,21 @@
 	                _react2.default.createElement(
 	                    "div",
 	                    { className: "list-image-title" },
-	                    details.name
+	                    details.owner
 	                ),
 	                _react2.default.createElement(
 	                    "div",
 	                    { className: "grey-text-in-list-item list-image-tags" },
-	                    tag_length
+	                    details.numOfTags
 	                ),
 	                _react2.default.createElement(
 	                    "div",
 	                    { className: "grey-text-in-list-item list-image-date" },
-	                    details.date
+	                    details.added
 	                ),
-	                _react2.default.createElement("div", { onClick: this.showAlertWithNameAndUrl, className: "list-image-options" })
+	                _react2.default.createElement("div", { onClick: function onClick(e) {
+	                        return _this2.delete(e, _this2.props.index);
+	                    }, className: "list-image-options" })
 	            );
 	        }
 	    }]);

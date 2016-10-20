@@ -1,10 +1,11 @@
 import React from 'react';
 
 class Header extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.onSwitch = this.onSwitch.bind(this);
-        this.switchClass = this.switchClass.bind(this)
+        this.switchClass = this.switchClass.bind(this);
+        this.createItem = this.createItem.bind(this);
     }
 
     switchClass() {
@@ -20,12 +21,22 @@ class Header extends React.Component {
         main.classList.toggle('empty')
     }
 
+    createItem () {
+        const item = {
+            added: (new Date()).toLocaleDateString(),
+            owner: "karsten",
+            src: "http://lorempixel.com/85/85/",
+            numOfTags: 10
+        };
+        this.props.addItem(item);
+    }
+
     render () {
         return (
             <header>
                 <div id="sandwich-icon"></div>
                 <div id="main-title">{ this.props.tagline }</div>
-                <div id="plus-icon"></div>
+                <div id="plus-icon" onClick={this.createItem}></div>
                 <div id="view-icon" onClick={this.onSwitch} />
             </header>
         );

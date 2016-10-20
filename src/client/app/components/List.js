@@ -13,7 +13,7 @@ class List extends React.Component {
                 {
                     Object
                         .keys(this.props.items)
-                        .map(key => <Item key={this.props.items[key].name} details={this.props.items[key]} />)
+                        .map(key => <Item key={key} index={key} details={this.props.items[key]} removeItem={this.props.removeItem} />)
                 }
             </ul>
         );

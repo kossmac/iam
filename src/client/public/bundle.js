@@ -61,11 +61,11 @@
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
-	var _List = __webpack_require__(/*! ./components/List */ 173);
+	var _List = __webpack_require__(/*! ./components/List */ 174);
 	
 	var _List2 = _interopRequireDefault(_List);
 	
-	var _Footer = __webpack_require__(/*! ./components/Footer */ 175);
+	var _Footer = __webpack_require__(/*! ./components/Footer */ 176);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
@@ -90,7 +90,7 @@
 	        _this.removeItem = _this.removeItem.bind(_this);
 	
 	        _this.state = {
-	            items: {}
+	            items: []
 	        };
 	        return _this;
 	    }
@@ -106,7 +106,7 @@
 	
 	            var request = new XMLHttpRequest();
 	            request.open('GET', this.props.source);
-	            request.addEventListener('load', function (event) {
+	            request.addEventListener('load', function () {
 	                if (request.status == 200) {
 	                    this.setState({
 	                        items: eval("(" + request.responseText + ")")
@@ -128,6 +128,7 @@
 	        value: function removeItem(key) {
 	            var items = this.state.items.slice();
 	            delete items[key];
+	            //items.splice(key, 1);
 	            this.setState({ items: items });
 	        }
 	    }, {
@@ -22060,6 +22061,8 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _helper = __webpack_require__(/*! ../helper */ 173);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22079,6 +22082,7 @@
 	        _this.onSwitch = _this.onSwitch.bind(_this);
 	        _this.switchClass = _this.switchClass.bind(_this);
 	        _this.createItem = _this.createItem.bind(_this);
+	        _this.img_libs = ['placekitten.com', 'placebear.com', 'baconmockup.com', 'placehold.it', 'placeskull.com', 'fillmurray.com', 'lorempixel.com', 'www.placecage.com'];
 	        return _this;
 	    }
 	
@@ -22102,8 +22106,8 @@
 	        value: function createItem() {
 	            var item = {
 	                added: new Date().toLocaleDateString(),
-	                owner: "karsten",
-	                src: "http://lorempixel.com/85/85/",
+	                owner: 'karsten',
+	                src: 'http://' + (0, _helper.randomFromArray)(this.img_libs) + '/85/85',
 	                numOfTags: 10
 	            };
 	            this.props.addItem(item);
@@ -22133,6 +22137,23 @@
 
 /***/ },
 /* 173 */
+/*!**********************************!*\
+  !*** ./src/client/app/helper.js ***!
+  \**********************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.randomFromArray = randomFromArray;
+	function randomFromArray(arr) {
+	    return arr[Math.floor(Math.random() * arr.length)];
+	}
+
+/***/ },
+/* 174 */
 /*!*******************************************!*\
   !*** ./src/client/app/components/List.js ***!
   \*******************************************/
@@ -22150,7 +22171,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Item = __webpack_require__(/*! ../components/Item */ 174);
+	var _Item = __webpack_require__(/*! ../components/Item */ 175);
 	
 	var _Item2 = _interopRequireDefault(_Item);
 	
@@ -22197,7 +22218,7 @@
 	exports.default = List;
 
 /***/ },
-/* 174 */
+/* 175 */
 /*!*******************************************!*\
   !*** ./src/client/app/components/Item.js ***!
   \*******************************************/
@@ -22252,7 +22273,6 @@
 	        key: "delete",
 	        value: function _delete(event, key) {
 	            if (confirm("Do you really want to delete this item?")) {
-	                console.log('deleting...' + key);
 	                this.props.removeItem(key);
 	            }
 	            event.stopPropagation();
@@ -22311,7 +22331,7 @@
 	exports.default = Item;
 
 /***/ },
-/* 175 */
+/* 176 */
 /*!*********************************************!*\
   !*** ./src/client/app/components/Footer.js ***!
   \*********************************************/

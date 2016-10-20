@@ -22,7 +22,6 @@ class Item extends React.Component {
 
     delete(event, key) {
         if (confirm("Do you really want to delete this item?")) {
-            console.log('deleting...' + key);
             this.props.removeItem(key);
         }
         event.stopPropagation();

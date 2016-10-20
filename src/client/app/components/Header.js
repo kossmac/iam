@@ -1,4 +1,5 @@
 import React from 'react';
+import {randomFromArray} from '../helper'
 
 class Header extends React.Component {
     constructor() {
@@ -6,6 +7,16 @@ class Header extends React.Component {
         this.onSwitch = this.onSwitch.bind(this);
         this.switchClass = this.switchClass.bind(this);
         this.createItem = this.createItem.bind(this);
+        this.img_libs = [
+            'placekitten.com',
+            'placebear.com',
+            'baconmockup.com',
+            'placehold.it',
+            'placeskull.com',
+            'fillmurray.com',
+            'lorempixel.com',
+            'www.placecage.com'
+        ]
     }
 
     switchClass() {
@@ -24,8 +35,8 @@ class Header extends React.Component {
     createItem () {
         const item = {
             added: (new Date()).toLocaleDateString(),
-            owner: "karsten",
-            src: "http://lorempixel.com/85/85/",
+            owner: 'karsten',
+            src: 'http://'+ randomFromArray(this.img_libs) + '/85/85',
             numOfTags: 10
         };
         this.props.addItem(item);

@@ -14,7 +14,7 @@ class App extends React.Component {
         this.removeItem = this.removeItem.bind(this);
 
         this.state = {
-            items: {}
+            items: []
         };
     }
 
@@ -27,7 +27,7 @@ class App extends React.Component {
 
         var request = new XMLHttpRequest();
         request.open('GET', this.props.source);
-        request.addEventListener('load', function (event) {
+        request.addEventListener('load', function () {
             if (request.status == 200) {
                 this.setState({
                     items: eval("(" + request.responseText + ")")
@@ -47,6 +47,7 @@ class App extends React.Component {
     removeItem(key) {
         const items = this.state.items.slice();
         delete items[key];
+        //items.splice(key, 1);
         this.setState({items});
     }
 

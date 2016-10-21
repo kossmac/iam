@@ -58,7 +58,7 @@ class App extends React.Component {
                     tagline="Medien"
                     addItem={this.addItem}
                 />
-                <main id="main">
+                <main>
                     <List
                         loadItems={this.loadItems}
                         removeItem={this.removeItem}

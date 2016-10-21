@@ -5,7 +5,6 @@ class Header extends React.Component {
     constructor() {
         super();
         this.onSwitch = this.onSwitch.bind(this);
-        this.switchClass = this.switchClass.bind(this);
         this.createItem = this.createItem.bind(this);
         this.img_libs = [
             'placekitten.com',
@@ -19,16 +18,16 @@ class Header extends React.Component {
         ]
     }
 
-    switchClass() {
-        var main = document.getElementById('main');
-        document.body.classList.toggle('tile');
-        main.removeEventListener('transitionend', this.switchClass);
-        main.classList.toggle('empty');
-    }
-
     onSwitch () {
-        var main = document.getElementById('main');
-        main.addEventListener('transitionend', this.switchClass, false);
+        var main = document.querySelector('main');
+
+        function switchClass() {
+            document.body.classList.toggle('tile');
+            main.removeEventListener('transitionend', switchClass);
+            main.classList.toggle('empty');
+        }
+
+        main.addEventListener('transitionend', switchClass, false);
         main.classList.toggle('empty')
     }
 

@@ -143,7 +143,7 @@
 	                }),
 	                _react2.default.createElement(
 	                    'main',
-	                    { id: 'main' },
+	                    null,
 	                    _react2.default.createElement(_List2.default, {
 	                        loadItems: this.loadItems,
 	                        removeItem: this.removeItem,
@@ -22080,25 +22080,23 @@
 	        var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this));
 	
 	        _this.onSwitch = _this.onSwitch.bind(_this);
-	        _this.switchClass = _this.switchClass.bind(_this);
 	        _this.createItem = _this.createItem.bind(_this);
 	        _this.img_libs = ['placekitten.com', 'placebear.com', 'baconmockup.com', 'placehold.it', 'placeskull.com', 'fillmurray.com', 'lorempixel.com', 'www.placecage.com'];
 	        return _this;
 	    }
 	
 	    _createClass(Header, [{
-	        key: 'switchClass',
-	        value: function switchClass() {
-	            var main = document.getElementById('main');
-	            document.body.classList.toggle('tile');
-	            main.removeEventListener('transitionend', this.switchClass);
-	            main.classList.toggle('empty');
-	        }
-	    }, {
 	        key: 'onSwitch',
 	        value: function onSwitch() {
-	            var main = document.getElementById('main');
-	            main.addEventListener('transitionend', this.switchClass, false);
+	            var main = document.querySelector('main');
+	
+	            function switchClass() {
+	                document.body.classList.toggle('tile');
+	                main.removeEventListener('transitionend', switchClass);
+	                main.classList.toggle('empty');
+	            }
+	
+	            main.addEventListener('transitionend', switchClass, false);
 	            main.classList.toggle('empty');
 	        }
 	    }, {
